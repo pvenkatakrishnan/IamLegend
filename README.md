@@ -1,3 +1,4 @@
 # IamLegend
 
-Test App for all my work
+
+A sample kraken app for my own experimentations
