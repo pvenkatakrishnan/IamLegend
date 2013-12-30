@@ -1,4 +1,4 @@
 <div>
-	<p>Testing out nested partials from level 1 on {name} using {stack}</p>
+	<font color="red"> <p>Testing out nested partials from level 1 on {name} using {stack}</p></font>
 	{> "partialSamples/partial2" /}
 </div>
