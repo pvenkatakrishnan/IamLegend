@@ -18,7 +18,6 @@
 			//map will have an equivalent folder structure inside the root as well
 		"locales": {
 			"es-US": {
-				"root": "US/es",
 				"dust": {
 					"partialSamples/partial1": true,
 					"partialSamples/partial2": true
