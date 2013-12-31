@@ -6,21 +6,24 @@ module.exports = function (server) {
     server.get('/', function (req, res) {
         var model = { name: 'Iamlegend', engine: 'dustjs', stack: 'krakenjs' };
         
-        //Test for experiements specialization
+        //Test 1: for experiements specialization
         //just a sample to try if experiments work
         //obviously the experiments wont be specified here in the model
 
         /*model.experiments = {
 			foo: true
         };*/
-
-        //Test for locales specialization
-        //try to override the locales to check if the right templates get loaded
-        console.info('res.locals:' + res.locals);
-
         res.locals({
-            locality: 'es-US'
+            experiments : {
+                foo: true
+            }
         });
+
+        //Test 2:  for locales specialization
+        
+        /*res.locals({
+            locality: 'es-US'
+        });*/
 
         //TODO : what if we need both experiemnt + locale ?
 
