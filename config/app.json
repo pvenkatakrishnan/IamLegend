@@ -5,7 +5,8 @@
 	"specialization": {
 		"experimentation": {
 			//pattern 1: Specify a root to look for within the default template folder
-			// and name of files within that root folder [could be optional]
+			// and name of files within that root folder 
+			//[root could be optional, if not specified can look directly into default root]
 			"foo": {
 				"root": "foo",
 				"dust": {
@@ -14,8 +15,8 @@
 				}
 			}
 		},
-			//pattern2: just specify the root and assume the templates enabled in the dust
-			//map will have an equivalent folder structure inside the root as well
+			//pattern2: just specify locale assume the templates enabled in the dust map
+			//will have an equivalent folder structure inside the locale folder as well
 		"locales": {
 			"es-US": {
 				"dust": {
