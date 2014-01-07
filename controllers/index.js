@@ -1,6 +1,5 @@
 'use strict';
 
-
 module.exports = function (server) {
 
     server.get('/', function (req, res) {
@@ -11,9 +10,10 @@ module.exports = function (server) {
         res.locals({
             experiments : {
                 foo: true
+                //bar: true
             }
         });
-
+        
         //Test 2:  for locales specialization
         //this is not the correct way of setting locales. Locale needs to be set
         //outside local context. But this works for a test 
@@ -24,7 +24,6 @@ module.exports = function (server) {
         });*/
     
         //TODO : what if we need both experiemnt + locale  specialization?
-
 
         res.render('index', model);
         

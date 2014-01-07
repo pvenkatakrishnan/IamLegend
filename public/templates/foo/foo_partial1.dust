@@ -1,4 +1,5 @@
 <div>
 	<font color="green"><p>Testing out nested partials from level 1 on {name} using {stack}</p></font>
 	{> "partialSamples/partial2" /}
+	<div id="forClientRender"></div>
 </div>
