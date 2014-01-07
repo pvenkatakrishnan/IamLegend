@@ -1,1 +1,1 @@
-<div>I am the rocking client side rendered template with specialization !!</div>
+<div>I am the rocking client side rendered template with specialization !! {message}</div>

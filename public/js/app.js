@@ -10,10 +10,10 @@ require(['config' /*, Dependencies */], function (config) {
 				nougat.setContext($(document.body).data());
 				console.info('**********' + JSON.stringify(nougat.getContext()));
 				
-				$('#renderClientTemp').click(function() {
+				$('#renderClientTemp').click(function () {
 					nougat.viewRenderer
-					.render('partialSamples/clientRender_sample1')
-					.done(function(content) {
+					.render('partialSamples/clientRender_sample1', {message: 'I <3 my job!'})
+					.done(function (content) {
 						$('#forClientRender').html(content);
 					});
 				});

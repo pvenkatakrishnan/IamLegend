@@ -1,1 +1,1 @@
-<div>I am the cool client side rendered template !!</div>
+<div>I am the cool client side rendered template !! {message}</div>
