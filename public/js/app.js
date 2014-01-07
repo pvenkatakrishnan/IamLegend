@@ -9,11 +9,15 @@ require(['config' /*, Dependencies */], function (config) {
 			require(['jquery', 'nougat'], function ($, nougat) {
 				nougat.setContext($(document.body).data());
 				console.info('**********' + JSON.stringify(nougat.getContext()));
-				nougat.viewRenderer
+				
+				$('#renderClientTemp').click(function() {
+					nougat.viewRenderer
 					.render('partialSamples/clientRender_sample1')
 					.done(function(content) {
 						$('#forClientRender').html(content);
 					});
+				});
+				
 			});
         }
     };

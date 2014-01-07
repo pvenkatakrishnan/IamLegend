@@ -10,9 +10,9 @@
 			"foo": {
 				"root": "foo",
 				"dust": {
-					"partialSamples/partial1": "foo_partial1",
-					"partialSamples/partial2": "foo_partial2",
-					"partialSamples/clientRender_sample1": "clientRender_sample1"
+					"partialSamples/partial1": "foo_partial1"
+					//"partialSamples/partial2": "foo_partial2",
+					//"partialSamples/clientRender_sample1": "clientRender_sample1"
 				}
 			}
 			/*"bar": {
