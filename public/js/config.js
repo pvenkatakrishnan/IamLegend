@@ -7,7 +7,7 @@ requirejs.config({
 		'nougat': 'core/nougat',
 		'dust-helpers' : 'lib/dust-helpers-1.1.1',
 		'dust-helpers-supplement' : 'lib/dust-helpers-supplement',
-		'karka-helper': 'lib/karka-helper'
+		'specialization': 'lib/specialization-helper'
     },
     useStrict: true
 });

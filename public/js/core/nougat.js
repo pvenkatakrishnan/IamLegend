@@ -8,7 +8,7 @@
 /*global define:false, requirejs:true */
 /*jslint plusplus:true, nomen:true */
 
-define(['jquery', 'dust', 'dust-helpers-supplement', 'karka-helper'], function ($) {
+define(['jquery', 'dust', 'dust-helpers-supplement', 'specialization'], function ($) {
 	'use strict';
 
 	var ViewRenderer = null,
