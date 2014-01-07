@@ -5,7 +5,7 @@
     <title>{+title /}</title>
     <link rel="stylesheet" href="css/app.css" />
 </head>
-<body data-specialization='{_specialization|js|s}' data-locality='{locality|js|s}' data-experiments='{experiments|js|s}' data-template-path="/IamLegend/templates/%s.js">
+<body data-specialization='{_specialization|js|s}' data-locality='{locality|js|s}' data-experiments='{experiments|js|s}' data-template-path="{templatePath}/%s.js">
 <div id="wrapper">
     {+body /}
 </div>
