@@ -5,7 +5,7 @@
 
     {>"partialSamples/partial1" /}
     <div>
-    	<button type='button' id='renderClientTemp'>Render Template on Client </button>
+    	<button type='button' id='renderClientTemp'>Click Me to demo client side rendering</button>
 		<div id="forClientRender"></div>
     </div>
 

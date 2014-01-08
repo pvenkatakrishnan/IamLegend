@@ -16,35 +16,6 @@ define(['jquery', 'dust', 'dust-helpers-supplement', 'specialization'], function
 		Nougat = null;
 
 	/**
-	 * Creates a new array with all elements that pass the test implemented by the provided function.
-	 * The filter callback receives three arguments: the value of the element, the index of the element,
-	 * and the Array object being traversed.
-	 * @param {Array} arr the array to filter
-	 * @param {Function} fn the function defining the filter test, returning true to keep and false to discard.
-	 * @param {Object} [context] Object to use as this when executing callback.
-	 */
-	function filter(arr, fn, context) {
-		if (Array.prototype.filter) {
-			return arr.filter(fn);
-		}
-
-		var result = [],
-			length = arr.length - 1,
-			value = null;
-
-		while (length > -1) {
-			value = arr[length];
-			if (fn.call(context, value, length, arr)) {
-				result.unshift(value);
-			}
-			length--;
-		}
-
-		return result;
-	}
-
-
-	/**
 	 * Executes a provided function once per array element or object property.
 	 * Based on http://es5.github.com/#x15.4.4.18
 	 * @param {Object} obj the array or object to enumerate
@@ -148,10 +119,10 @@ define(['jquery', 'dust', 'dust-helpers-supplement', 'specialization'], function
 		var DEFAULT_PATH = '/templates/%s.js';
 
 		dust.onLoad = function (name, callback) {
-			//throw e;
+
 			var path = nougat.getContext().templatePath || DEFAULT_PATH,
 				resolvedName = (templateResolve) ? templateResolve(name, nougat.getContext()) : name,
-				template = path.replace('%s',resolvedName );
+				template = path.replace('%s', resolvedName);
 
 			console.info('template:' + template);
 			require([template], function () {
@@ -192,93 +163,10 @@ define(['jquery', 'dust', 'dust-helpers-supplement', 'specialization'], function
 
 	Nougat = function () {
 		this._context = {};
-		this._eventCache = {};
 		this.viewRenderer = new DustRenderer(this);
 	};
 
 	Nougat.prototype = {
-
-		/**
-		 * Register an event listener with the provided callback and optional context.
-		 * @param {String} event a space separated list of events to bind
-		 * @param {Function} callback the method to be invoked when an event is dispatched
-		 * @param {Object} [context] the context the callback should have (value of "this") when the callback is invoked
-		 */
-		on : function (event, callback, context) {
-			var cache = this._eventCache;
-
-			forEach(event.split(/\s+/), function (event) {
-				var descriptors = cache[event] || (cache[event] = []);
-				descriptors.push({
-					name: event,
-					callback: callback,
-					context: context
-				});
-			});
-		},
-
-		/**
-		 * Stops listening for events that meet the provided criteria
-		 * @param {String} [event] a list of events to bind separated by whitespace
-		 * @param {Function} [callback] the method to be invoked when an event is dispatched
-		 * @param {Object} [context] the context the callback should have (value of "this") when the callback is invoked
-		 */
-		off : function (event, callback, context) {
-			var cache = this._eventCache,
-				events = event ? Object(event.split(/\s+/)) : null,
-				matcher = null;
-
-			// Optimization for event-name only calls
-			if (events && !callback && !context) {
-				forEach(events, function (evt) {
-					delete cache[evt];
-				});
-				return;
-			}
-
-			matcher = {
-				callback: callback,
-				context: context
-			};
-
-			// Scan the cache looking for events that meet the criteria to remove listeners
-			forEach(cache, function (descriptors, name) {
-				if (!events || events.hasOwnProperty(name)) {
-					cache[name] = filter(descriptors, function (descriptor) {
-						var keep = false;
-						forEach(matcher, function (value, key) {
-							if (value && value !== descriptor[key]) {
-								// If a value is defined but doesn't match, flag the event descriptor
-								// as 'keep'.
-								keep = true;
-							}
-							return !keep;
-						});
-						return keep;
-					});
-				}
-			});
-		},
-
-		/**
-		 * Publish the given event, invoking callback with the optionally provided data
-		 * @param {String} event the name of the event to dispatch
-		 * @param {Object} [args...] any values that should be passed to listeners as arguments
-		 */
-		trigger : function (event) {
-			var cache = this._eventCache,
-				data = Array.prototype.slice.call(arguments, 1),
-				descriptors = null;
-
-			forEach(event.split(/\s+/), function (event) {
-				descriptors = cache[event];
-				if (descriptors) {
-					forEach(descriptors, function (descriptor) {
-						descriptor.callback.apply(descriptor.context, data);
-					});
-				}
-			});
-		},
 
 		/**
 		 * 
