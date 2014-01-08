@@ -1,15 +1,18 @@
 'use strict';
 
 require(['config' /*, Dependencies */], function (config) {
-
-    var app = {
-        initialize: function () {
-			//Lets demonstrate specialization for
-			//client side rendering.
-			require(['jquery', 'nougat'], function ($, nougat) {
-				nougat.setContext($(document.body).data());
-				console.info('**********' + JSON.stringify(nougat.getContext()));
+	require(['jquery', 'nougat'], function ($, nougat) {
+		var app = {
+		    initialize: function () {
 				
+				nougat.setContext($(document.body).data());
+				//Dmonstrating specialization for
+				//client side rendering.
+				this.initializeView();
+				
+		    },
+
+		    initializeView: function () {
 				$('#renderClientTemp').click(function () {
 					nougat.viewRenderer
 					.render('partialSamples/clientRender_sample1', {message: 'I <3 my job!'})
@@ -17,12 +20,10 @@ require(['config' /*, Dependencies */], function (config) {
 						$('#forClientRender').after(content);
 					});
 				});
-				
-			});
-        }
-    };
-    app.initialize();
-
+		    }
+		};
+		app.initialize();
+	});
 });
 
 
