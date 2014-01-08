@@ -14,14 +14,13 @@ require(['config' /*, Dependencies */], function (config) {
 					nougat.viewRenderer
 					.render('partialSamples/clientRender_sample1', {message: 'I <3 my job!'})
 					.done(function (content) {
-						$('#forClientRender').html(content);
+						$('#forClientRender').after(content);
 					});
 				});
 				
 			});
         }
     };
-
     app.initialize();
 
 });
