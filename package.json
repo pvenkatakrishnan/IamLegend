@@ -12,7 +12,7 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
-    "kraken-js": "git://github.com/pvenkatakrishnan/kraken-js.git#specialization",
+    "kraken-js": "git://github.com/pvenkatakrishnan/kraken-js.git#refactored",
     "express": "~3.4.4",
     "adaro": "git://github.com/pvenkatakrishnan/adaro.git#specialization",
     "nconf": "~0.6.8",
