@@ -2,8 +2,8 @@
 	"express": {
 		"route": "/IamLegend"
 	},
-	"specialization": [
-	    {
+    "specialization": [
+        {
             "dust": "partialSamples/partial1",
             "mappedDust": "foo/foo_partial1",
             "experiments": ["foo", "bar"]
@@ -20,7 +20,7 @@
             "experiments": ["foo", "bar", "baz"], // one of the experiment specs need to be satisifed
             "devices": ["mobile", "tablet"] // one of the devices should be satisfied
         }
-	]
+    ]
 
 		
 // Uncomment and change as needed (Be careful not to leave trailing commas!)
