@@ -19,10 +19,7 @@ module.exports = function (server) {
         //Test 1: for experiements specialization
 
         res.locals({
-            experiments : {
-                foo: true
-                //bar: true
-            }
+            experiments : ['foo']
         });
         
         //Test 2:  for locales specialization
@@ -30,9 +27,9 @@ module.exports = function (server) {
         //outside local context. But this works for a test 
         //TODO to figure out the right way to set the locale.
         
-        /*res.locals({
-            locality: 'es-US'
-        });*/
+        res.locals({
+            locale: 'es_US'
+        });
     
         //TODO : what if we need both experiemnt + locale  specialization?
 
