@@ -9,12 +9,12 @@ module.exports = function (server) {
         
         //TODO IMPORTANT!!!!!!
         //this should be figured out in the framework somewhere
-        res.locals({
+        /*res.locals({
             templatePath: (process.env.NODE_ENV === 'production') ? '/IamLegend/templates/US/en' : '/IamLegend/templates'
         });
         res.locals({
             _specialization: nconf.get('specialization')
-        });
+        });*/
 
         //Test 1: for experiements specialization
 
@@ -29,6 +29,10 @@ module.exports = function (server) {
         
         res.locals({
             locale: 'es_US'
+        });
+
+        res.locals({
+            device: 'tablet'
         });
     
         //TODO : what if we need both experiemnt + locale  specialization?

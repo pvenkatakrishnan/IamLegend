@@ -2,70 +2,26 @@
 	"express": {
 		"route": "/IamLegend"
 	},
-    "specialization": [
-        {
-            "dust": "partialSamples/partial1",
-            "mappedDust": "foo/foo_partial1",
-            "experiments": ["foo", "bar"]
-        },
-        {
-            "dust": "partialSamples/partial2",
-            "mappedDust": "foo/foo_partial2",
-            "experiments": ["foo", "bar"]
-        },
-        {
-            "dust": "partialSamples/partial1",
-            "mappedDust": "bar/bar_partial1",
-            "locales": ["de_DE", "es_US"], // one of the locales should be satisfied
-            "experiments": ["foo", "bar", "baz"], // one of the experiment specs need to be satisifed
-            "devices": ["mobile", "tablet"] // one of the devices should be satisfied
-        }
-    ]
+    "specialization": {
+        "partialSamples/partial1" : [
+            {
+                "template" : "bar/bar_partial1",
+                "rules" : {
+                    "locale" : ["en_US", "es_US"],
+                    "experiments" : ["foo"],
+                    "device" : ["tablet"]
+                }
+            },
 
-		
-// Uncomment and change as needed (Be careful not to leave trailing commas!)
+            {
+                "template": "foo/foo_partial1",
+                "rules": {
+                    "locale": ["de_DE", "es_US"],
+                    "experiments": ["foo"]
+                }
+            }
 
-// "port": 8000,
-//
-// "host": "localhost",
-//
-// "i18n": {
-//     "fallback": "en-US",
-//     "contentPath": "path:./locales"
-// },
-//
-// "routes": {
-//     "routePath": "path:./controllers"
-// },
-//
-//	"view engines": {
-//      "js": {
-//         "module": "adaro",
-//         "settings": {
-//             "helpers": null,
-//             "stream": false
-//         }
-//      },
-//
-//     "dust": {
-//         "module": "adaro",
-//         "settings": {
-//             "helpers": null,
-//             "stream": false
-//         }
-//     }
-// },
-// "express": {
-//     "x-powered-by": false,
-//     "trust proxy": false,
-//     "jsonp callback name": null,
-//     "json replacer": null,
-//     "json spaces": 0,
-//     "case sensitive routing": false,
-//     "strict routing": false,
-//     "view cache": true,
-//     "view engine": "js",
-//     "views": "path:./.build/templates"
-// }
-
+        ]
+    }
+    
 }
