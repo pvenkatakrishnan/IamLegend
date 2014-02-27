@@ -7,7 +7,7 @@ var kraken = require('kraken-js'),
 
 app.configure = function configure(nconf, next) {
     // Fired when an app configures itself
-    next(null);
+    next();
 };
 
 
@@ -17,7 +17,22 @@ app.requestStart = function requestStart(server) {
 
 
 app.requestBeforeRoute = function requestBeforeRoute(server) {
-    // Fired before routing occurs
+    // Setting all the res.locals information for the
+    // specialization to happen
+    server.use(function(req, res, next) {
+        res.locals({
+            templatePath: (process.env.NODE_ENV === 'production') ? '/IamLegend/templates/US/en' : '/IamLegend/templates'
+        });
+        res.locals({
+            context: {
+                locality: 'es_US'
+            }
+        });
+        res.locals({
+            device: 'tablet'
+        });
+        next();
+    });
 };
 
 

@@ -7,7 +7,7 @@
             {
                 "template" : "bar/bar_partial1",
                 "rules" : {
-                    "locale" : ["en_US", "es_US"],
+                    "context.locality" : ["en_US", "es_US"],
                     "experiments" : ["foo"],
                     "device" : ["tablet"]
                 }
@@ -16,8 +16,18 @@
             {
                 "template": "foo/foo_partial1",
                 "rules": {
-                    "locale": ["de_DE", "es_US"],
+                    "context.locality": ["de_DE", "es_US"],
                     "experiments": ["foo"]
+                }
+            }
+        ],
+        "partialSamples/clientRender_sample1": [
+            {
+                "template" : "foo/clientRender_sample1",
+                "rules" : {
+                    "context.locality" : ["en_US", "es_US"],
+                    "experiments" : ["foo"],
+                    "device" : ["tablet"]
                 }
             }
 

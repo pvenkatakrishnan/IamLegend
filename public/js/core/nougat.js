@@ -121,7 +121,8 @@ define(['jquery', 'dust', 'dust-helpers-supplement', 'specialization'], function
 		dust.onLoad = function (name, callback) {
 
 			var path = nougat.getContext().templatePath || DEFAULT_PATH,
-				resolvedName = (templateResolve) ? templateResolve(name, nougat.getContext()) : name,
+                specialization = nougat.getContext().specialization,
+				resolvedName = (specialization && specialization[name]) || name,
 				template = path.replace('%s', resolvedName);
 
 			console.info('template:' + template);
@@ -134,9 +135,9 @@ define(['jquery', 'dust', 'dust-helpers-supplement', 'specialization'], function
 
 				//also fill this into the dust cache in case we resolved the template name to 
 				//something else for specialization
-				if(name !== resolvedName) {
+				if(name !== resolvedName && !dust.cache[name]) {
+                    console.info('entered into asigning to original name');
 					dust.cache[name] = dust.cache[resolvedName];
-					delete dust.cache[resolvedName];
 				}
 				setTimeout(callback, 0);
 			});
