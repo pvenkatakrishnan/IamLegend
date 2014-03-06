@@ -1,37 +1,32 @@
 {
-	"express": {
-		"route": "/IamLegend"
-	},
+    "express": {
+        "view engine": "dust",
+        "views": "path:./public/templates"
+    },
+    "view engines": {
+        "dust": {
+            "module": "engine-munger",
+            "renderer" : {
+                "method": "dust",
+                "arguments": [{"cache": false}]
+            }
+        },
+        "js": {
+            "module": "adaro",
+            "renderer": {
+                "method": "js",
+                "arguments": [{"cache": false}]
+            }
+        }
+    },
     "specialization": {
         "partialSamples/partial1" : [
             {
                 "template" : "bar/bar_partial1",
                 "rules" : {
-                    "context.locality" : ["en_US", "es_US"],
-                    "experiments" : ["foo"],
-                    "device" : ["tablet"]
-                }
-            },
-
-            {
-                "template": "foo/foo_partial1",
-                "rules": {
-                    "context.locality": ["de_DE", "es_US"],
-                    "experiments": ["foo"]
+                    "doIt" : true
                 }
             }
-        ],
-        "partialSamples/clientRender_sample1": [
-            {
-                "template" : "foo/clientRender_sample1",
-                "rules" : {
-                    "context.locality" : ["en_US", "es_US"],
-                    "experiments" : ["foo"],
-                    "device" : ["tablet"]
-                }
-            }
-
         ]
     }
-    
 }

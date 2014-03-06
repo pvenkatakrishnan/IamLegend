@@ -1,11 +1,29 @@
 'use strict';
 
 
-var kraken = require('kraken-js'),
-    app = {};
+var express = require('express'),
+    kraken = require('kraken.next'),
+    options = {
+        onconfig: function (settings, cb) {
+            console.info('****s', settings.get('express:views'));
+            var config = {
+                views: settings.get('express:views'),
+                i18n: settings.get('i18n'),
+                specialization: settings.get('specialization')
+            };
+            var engines = settings.get('view engines');
+            engines.js.renderer.arguments = [config];
+            engines.dust.renderer.arguments = [config];
+            console.info(engines);
+            settings.set('view engines', engines);
+            cb(null, settings);
+        }
+    };
 
-
-app.configure = function configure(nconf, next) {
+var app = express();
+app.use(kraken(options));
+app.listen(8000);
+/*app.configure = function configure(nconf, next) {
     // Fired when an app configures itself
     next();
 };
@@ -46,3 +64,4 @@ kraken.create(app).listen(function (err) {
         console.error(err);
     }
 });
+*/
