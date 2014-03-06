@@ -2,6 +2,7 @@
 
 
 var express = require('express'),
+    app = express(),
     kraken = require('kraken.next'),
     options = {
         onconfig: function (settings, cb) {
@@ -12,7 +13,7 @@ var express = require('express'),
                 specialization: settings.get('specialization')
             };
             var engines = settings.get('view engines');
-            engines.js.renderer['arguments'] = [config];
+            engines.js.renderer['arguments'] = [config, app];
             engines.dust.renderer['arguments'] = [config];
             console.info(engines);
             settings.set('view engines', engines);
@@ -20,7 +21,6 @@ var express = require('express'),
         }
     };
 
-var app = express();
 app.use(kraken(options));
 app.listen(8000);
 /*app.configure = function configure(nconf, next) {

@@ -2,6 +2,7 @@
     "express": {
         "view engine": "dust",
         "views": "path:./public/templates"
+       // "views": "path:./.build/templates"
     },
     "view engines": {
         "dust": {
@@ -12,7 +13,7 @@
             }
         },
         "js": {
-            "module": "adaro",
+            "module": "engine-munger",
             "renderer": {
                 "method": "js",
                 "arguments": [{"cache": false}]
