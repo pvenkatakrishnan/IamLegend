@@ -12,8 +12,8 @@ var express = require('express'),
                 specialization: settings.get('specialization')
             };
             var engines = settings.get('view engines');
-            engines.js.renderer.arguments = [config];
-            engines.dust.renderer.arguments = [config];
+            engines.js.renderer['arguments'] = [config];
+            engines.dust.renderer['arguments'] = [config];
             console.info(engines);
             settings.set('view engines', engines);
             cb(null, settings);
