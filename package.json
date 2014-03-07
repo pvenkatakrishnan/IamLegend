@@ -21,7 +21,10 @@
     "karka": "git://github.com/pvenkatakrishnan/karka.git#karka-without-context",
     "localizr": "git://github.com/totherik/localizr.git",
     "adaro": "~0.1.5",
-    "engine-munger": "git://github.com/pvenkatakrishnan/engine-munger.git#engine-munger.next"
+    "engine-munger": "git://github.com/pvenkatakrishnan/engine-munger.git#engine-munger.next",
+     //including makara for the time being for pre compiled templates
+     // needed when view engine switched to js
+    "makara": "~0.3.3"
   },
   "devDependencies": {
     "mocha": "~1.10.0",
