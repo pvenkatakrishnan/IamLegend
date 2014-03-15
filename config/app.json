@@ -1,8 +1,8 @@
 {
     "express": {
-        "view engine": "js",
-        //"views": "path:./public/templates"
-        "views": "path:./.build/templates"
+        "view engine": "dust",
+        "views": "path:./public/templates"
+        //"views": "path:./.build/templates"
     },
     "view engines": {
         "dust": {
